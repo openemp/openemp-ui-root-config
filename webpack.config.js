@@ -4,10 +4,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = (env) => {
   const result = {
+    // eslint-disable-next-line no-undef
     entry: path.resolve(__dirname, "src/root-config"),
     output: {
       filename: "openemp-mf-root-config.js",
       libraryTarget: "system",
+      // eslint-disable-next-line no-undef
       path: path.resolve(__dirname, "dist"),
     },
     devtool: "sourcemap",
