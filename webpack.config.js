@@ -1,46 +1,81 @@
-/* eslint-disable no-undef */
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
 
-module.exports = (env) => {
-  const result = {
-    entry: path.resolve(__dirname, "src/root-config"),
+const opts = {
+  orgName: "openemp-mf",
+  projectName: "root",
+  port: 9000,
+};
+
+module.exports = (webpackConfigEnv = {}) => {
+  // eslint-disable-next-line no-console
+  console.log(webpackConfigEnv);
+  return {
+    entry: path.resolve(__dirname, "src/index.js"),
     output: {
-      filename: "openemp-mf-root-config.js",
-      libraryTarget: "system",
       path: path.resolve(__dirname, "dist"),
+      publicPath: `http://localhost:${opts.port}/`,
     },
-    devtool: "sourcemap",
     module: {
       rules: [
-        { parser: { system: false } },
         {
-          test: /\.js$/,
+          test: /\.(js|ts)x?$/,
           exclude: /node_modules/,
-          use: [{ loader: "babel-loader" }],
+          use: {
+            loader: "babel-loader",
+          },
+        },
+        {
+          test: /\.css$/i,
+          include: [/node_modules/, /src/],
+          use: [
+            { loader: "style-loader" },
+            {
+              loader: "css-loader",
+              options: {
+                modules: false,
+              },
+            },
+          ],
         },
       ],
     },
+    devtool: "source-map",
     devServer: {
-      historyApiFallback: true,
-      disableHostCheck: true,
+      contentBase: path.resolve(__dirname, "dist"),
+      port: opts.port,
+      compress: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
+      disableHostCheck: true,
     },
     plugins: [
+      new CleanWebpackPlugin(),
+      new BundleAnalyzerPlugin({
+        analyzerMode: webpackConfigEnv.analyze ? "server" : "disabled",
+      }),
+      new ModuleFederationPlugin({
+        name: `${opts.orgName}-${opts.projectName}.js`,
+        library: { type: "var", name: `root` },
+        filename: "remoteEntry.js",
+        remotes: {
+          "@openemp-mf/dashboard": "__openemp_mf_dashboard__",
+        },
+        shared: [],
+      }),
       new HtmlWebpackPlugin({
-        inject: false,
-        template: "src/index.ejs",
+        template: "./src/index.ejs",
         templateParameters: {
-          isLocal: env && env.isLocal === "true",
+          isLocal: webpackConfigEnv && webpackConfigEnv.isLocal === "true",
         },
       }),
-      new CleanWebpackPlugin(),
     ],
-    externals: ["single-spa", /^@openemp-mf\/.+$/],
+    resolve: {
+      extensions: [".js", ".mjs", ".jsx", ".wasm", ".json"],
+    },
   };
-
-  return result;
 };
