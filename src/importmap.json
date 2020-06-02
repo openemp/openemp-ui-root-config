@@ -1,11 +1,14 @@
 {
-    "imports": {
-      "react": "https://cdn.jsdelivr.net/npm/react@16.13.0/umd/react.production.min.js",
-      "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
-      "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.3.4/lib/system/single-spa.min.js",
-      "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs@6.5.5/system/rxjs.min.js",
-      "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs@6.5.5/system/rxjs-operators.min.js",
-      "@openemp-mf/dashboard": "http://localhost:9001/openemp-mf-dashboard.js",
-      "@openemp-mf/styleguide": "http://localhost:9002/openemp-mf-styleguide.js"
-    }
+  "imports": {
+    "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.development.js",
+    "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
+    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.3.4/lib/system/single-spa.min.js",
+    "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs@6.5.5/system/rxjs.min.js",
+    "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs@6.5.5/system/rxjs-operators.min.js",
+    "@openemp-mf/root-config": "//localhost:9000/openemp-mf-root-config.js",
+    "@openemp-mf/styleguide": "http://localhost:9001/openemp-mf-styleguide.js",
+    "@openemp-mf/navbar": "http://localhost:9002/openemp-mf-navbar.js",
+    "@openemp-mf/drawer": "http://localhost:9003/openemp-mf-drawer.js",
+    "@openemp-mf/template": "http://localhost:9010/openemp-mf-template.js"
+  }
 }
