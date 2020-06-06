@@ -1,7 +1,8 @@
 {
   "imports": {
     "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.development.js",
-    "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.0/umd/react-dom.production.min.js",
+    "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.development.js",
+    "@reach/router": "https://cdn.jsdelivr.net/npm/@reach/router@1.3.3/umd/reach-router.min.js",
     "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.3.4/lib/system/single-spa.min.js",
     "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs@6.5.5/system/rxjs.min.js",
     "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs@6.5.5/system/rxjs-operators.min.js",
@@ -9,6 +10,7 @@
     "@openemp-mf/styleguide": "http://localhost:9001/openemp-mf-styleguide.js",
     "@openemp-mf/navbar": "http://localhost:9002/openemp-mf-navbar.js",
     "@openemp-mf/drawer": "http://localhost:9003/openemp-mf-drawer.js",
-    "@openemp-mf/template": "http://localhost:9010/openemp-mf-template.js"
+    "@openemp-mf/template": "http://localhost:9010/openemp-mf-template.js",
+    "@openemp-mf/login": "http://localhost:9011/openemp-mf-login.js"
   }
 }
