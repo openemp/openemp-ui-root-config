@@ -18,10 +18,12 @@ const showExcept = (routes) => {
   };
 };
 
-System.import("@openemp-mf/navbar").then((app) => {});
+// Pass Json config from Webpack
+const serviceConfig = __ServiceConfig__;
 
 Promise.resolve()
   .then(() => {
+    // we need to register core app fist
     registerApplication({
       name: "@openemp-mf/navbar",
       app: () => System.import("@openemp-mf/navbar"),
@@ -34,17 +36,23 @@ Promise.resolve()
     });
   })
   .then(() => {
-    registerApplication({
-      name: "@openemp-mf/template",
-      app: () => System.import("@openemp-mf/template"),
-      activeWhen: showWhenPrefix(["/template"]),
+    serviceConfig.map((service) => {
+      registerApplication({
+        name: service.name,
+        app: () => System.import(service.app),
+        activeWhen: showWhenPrefix(service.routes),
+      });
     });
   });
 
-// eslint-disable-next-line no-restricted-syntax
+/* 
+  In case we want to do some work related to life cycle of single-spa application
+  we use events that provided by single-spa please refer to:
+  https://single-spa.js.org/docs/api#events
+*/
 
 // window.addEventListener("popstate", (evt) => {
-//   if (evt.singleSpa) {
+//   if (evt.singleSpa) {hamine
 //     console.log(
 //       "This event was fired by single-spa to forcibly trigger a re-render"
 //     );
@@ -54,6 +62,4 @@ Promise.resolve()
 //   }
 // });
 
-start({
-  urlRerouteOnly: true,
-});
+start();

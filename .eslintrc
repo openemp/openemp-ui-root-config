@@ -1,3 +1,6 @@
 {
-  "extends": ["important-stuff", "plugin:prettier/recommended"]
+  "extends": ["important-stuff", "plugin:prettier/recommended"],
+  "globals": {
+    "__ServiceConfig__": true
+  }
 }
