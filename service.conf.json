@@ -1,0 +1,7 @@
+[
+  {
+    "name": "@openemp-mf/template",
+    "app": "@openemp-mf/template",
+    "routes": ["/template"]
+  }
+]

@@ -1,6 +1,11 @@
-const path = require("path");
+const { DefinePlugin } = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const DotenvWebpackPlugin = require("dotenv-webpack");
+const path = require("path");
+
+require("dotenv").config();
+const __ServiceConfig__ = JSON.stringify(require("./service.conf.json"));
 
 module.exports = (env) => {
   const result = {
@@ -29,8 +34,13 @@ module.exports = (env) => {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
+      hot: true,
     },
     plugins: [
+      new DotenvWebpackPlugin(),
+      new DefinePlugin({
+        __ServiceConfig__,
+      }),
       new HtmlWebpackPlugin({
         inject: false,
         template: "src/index.ejs",
