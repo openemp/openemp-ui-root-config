@@ -33,6 +33,7 @@ module.exports = (env) => {
       disableHostCheck: true,
       headers: {
         "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*",
       },
       hot: true,
     },

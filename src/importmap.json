@@ -6,7 +6,7 @@
     "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.3.4/lib/system/single-spa.min.js",
     "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs@6.5.5/system/rxjs.min.js",
     "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs@6.5.5/system/rxjs-operators.min.js",
-    "@openemp-mf/root-config": "//localhost:9000/openemp-mf-root-config.js",
+    "@openemp-mf/root-config": "http://localhost:9000/openemp-mf-root-config.js",
     "@openemp-mf/styleguide": "http://localhost:9001/openemp-mf-styleguide.js",
     "@openemp-mf/navbar": "http://localhost:9002/openemp-mf-navbar.js",
     "@openemp-mf/drawer": "http://localhost:9003/openemp-mf-drawer.js",
