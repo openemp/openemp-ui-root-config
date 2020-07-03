@@ -6,21 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>OpenEMP</title>
     <meta name="importmap-type" content="systemjs-importmap" />
-    <script type="systemjs-importmap" src="/src/importmap.json"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/import-map-overrides/dist/import-map-overrides.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
+    <script type="systemjs-importmap">
+      <%= vendors %>
+    </script>
+    <script type="systemjs-importmap">
+      <%= openempMf %>
+    </script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/import-map-overrides/dist/import-map-overrides.js"></script> -->
+    <script src="vendors/systemjs/dist/system.min.js"></script>
+    <script src="vendors/systemjs/dist/extras/amd.js"></script>
+    <script src="vendors/systemjs/dist/extras/named-exports.min.js"></script>
+
+    <!-- in case of more js module format is needed -->
+    <!-- <script src="vendors/systemjs/dist/extras/global.js"></script> -->
+    <!-- <script src="vendors/systemjs/dist/extras/module-types.js"></script> -->
+    <!-- <script src="vendors/systemjs/dist/extras/named-register.min.js"></script> -->
+    <!-- <script src="vendors/systemjs/dist/extras/transform.min.js"></script> -->
+    <!-- <script src="vendors/systemjs/dist/extras/use-default.min.js"></script> -->
   </head>
-  <body>
+  <body dir="ltr">
     <script>
       System.import("@openemp-mf/root-config");
-      System.import('@openemp-mf/drawer');
+      System.import("@openemp-mf/core");
     </script>
     <import-map-overrides-full
       show-when-local-storage="devtools"
