@@ -1,4 +1,12 @@
-import { registerApplication, start } from "single-spa";
+import { registerApplication, start, setMountMaxTime } from "single-spa";
+import { createNanoEvents } from "nanoevents";
+
+// Global object to emit UI events between microfrontends
+window.emitter = createNanoEvents();
+window.appMount = new Promise((resolve, reject) => {
+  window.appMountSuccess = resolve;
+  window.appMountFail = reject;
+});
 
 const showWhenAnyOf = (routes) => {
   return (location) => {
@@ -21,29 +29,25 @@ const showExcept = (routes) => {
 // Pass Json config from Webpack
 const serviceConfig = __ServiceConfig__;
 
-Promise.resolve()
-  .then(() => {
-    // we need to register core app fist
-    registerApplication({
-      name: "@openemp-mf/navbar",
-      app: () => System.import("@openemp-mf/navbar"),
-      activeWhen: showExcept(["/login", "/signup"]),
-    });
-    registerApplication({
-      name: "@openemp-mf/login",
-      app: () => System.import("@openemp-mf/login"),
-      activeWhen: showWhenAnyOf(["/login"]),
-    });
-  })
-  .then(() => {
-    serviceConfig.map((service) => {
-      registerApplication({
-        name: service.name,
-        app: () => System.import(service.app),
-        activeWhen: showWhenPrefix(service.routes),
-      });
-    });
+setMountMaxTime(1000, true, 10000);
+
+registerApplication({
+  name: "@openemp-mf/core",
+  app: () => System.import("@openemp-mf/core"),
+  activeWhen: showExcept(["/login", "/signup"]),
+});
+registerApplication({
+  name: "@openemp-mf/login",
+  app: () => System.import("@openemp-mf/login"),
+  activeWhen: showWhenAnyOf(["/login"]),
+});
+serviceConfig.map((service) => {
+  registerApplication({
+    name: service.name,
+    app: () => System.import(service.app),
+    activeWhen: showWhenPrefix(service.routes),
   });
+});
 
 /* 
   In case we want to do some work related to life cycle of single-spa application

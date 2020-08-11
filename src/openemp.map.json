@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@openemp-mf/root-config": "//localhost:9000/openemp-mf-root-config.js",
+    "@openemp-mf/styleguide": "//localhost:9001/openemp-mf-styleguide.js",
+    "@openemp-mf/navbar": "//localhost:9002/openemp-mf-navbar.js",
+    "@openemp-mf/drawer": "//localhost:9003/openemp-mf-drawer.js",
+    "@openemp-mf/core": "//localhost:9100/openemp-mf-core.js",
+    "@openemp-mf/template": "//localhost:9010/openemp-mf-template.js",
+    "@openemp-mf/login": "//localhost:9011/openemp-mf-login.js"
+  }
+}
