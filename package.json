@@ -1,9 +1,9 @@
 {
-  "name": "openemp-ui-root-config",
+  "name": "@openemp/root-config",
   "repository": "git@github.com:openemp/openemp-ui-root-config.git",
   "author": "OpenEMP",
   "license": "MIT",
-  "version": "0.0.1-latest",
+  "version": "0.0.1",
   "description": "OpenEMP UI Root MF",
   "scripts": {
     "start": "webpack-dev-server --mode=development --port 9000 --env.isLocal=true",
