@@ -32,13 +32,13 @@ const serviceConfig = __ServiceConfig__;
 setMountMaxTime(1000, true, 10000);
 
 registerApplication({
-  name: "@openemp-mf/core",
-  app: () => System.import("@openemp-mf/core"),
+  name: "@openemp/core",
+  app: () => System.import("@openemp/core"),
   activeWhen: showExcept(["/login", "/signup"]),
 });
 registerApplication({
-  name: "@openemp-mf/login",
-  app: () => System.import("@openemp-mf/login"),
+  name: "@openemp/login",
+  app: () => System.import("@openemp/login"),
   activeWhen: showWhenAnyOf(["/login"]),
 });
 serviceConfig.map((service) => {

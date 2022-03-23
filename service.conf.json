@@ -1,7 +1,7 @@
 [
   {
-    "name": "@openemp-mf-template",
-    "app": "@openemp-mf/template",
+    "name": "@openemp-template",
+    "app": "@openemp/template",
     "routes": ["/template"],
     "host": "localhost",
     "port": 9010

@@ -17,7 +17,7 @@ module.exports = (env) => {
   const result = {
     entry: path.resolve(__dirname, "src/root-config"),
     output: {
-      filename: "openemp-mf-root-config.js",
+      filename: "openemp-root-config.js",
       libraryTarget: "system",
       path: path.resolve(__dirname, "dist"),
     },
@@ -98,7 +98,7 @@ module.exports = (env) => {
         enabled: true,
       }),
     ],
-    externals: ["single-spa", /^@openemp-mf\/.+$/],
+    externals: ["single-spa", /^@openemp\/.+$/],
   };
 
   return result;
