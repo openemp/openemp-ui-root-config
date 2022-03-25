@@ -1,6 +1,4 @@
 {
-  "extends": ["important-stuff", "plugin:prettier/recommended"],
-  "globals": {
-    "__ServiceConfig__": true
-  }
+  "extends": ["ts-important-stuff", "plugin:prettier/recommended"],
+  "parser": "@babel/eslint-parser"
 }
