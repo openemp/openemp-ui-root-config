@@ -1,4 +1,8 @@
 {
-  "extends": ["ts-important-stuff", "plugin:prettier/recommended"],
-  "parser": "@babel/eslint-parser"
+  "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks", "prettier"],
+  // "parser": "@babel/eslint-parser",yarn
+  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "project": ["./tsconfig.eslint.json"]
+  }
 }

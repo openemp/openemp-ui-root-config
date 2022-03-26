@@ -1,7 +1,7 @@
 {
   "extends": "ts-config-single-spa",
-  "files": ["src/openemp-root-config.ts"],
   "compilerOptions": {
+    "jsx": "react-jsx",
     "declarationDir": "dist"
   },
   "include": ["src/**/*"],
