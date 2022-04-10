@@ -1,10 +1,9 @@
-import { registerApplication, start } from "single-spa";
-import {
-  constructApplications,
-  constructRoutes,
-  constructLayoutEngine,
-} from "single-spa-layout";
-import microfrontendLayout from "./microfrontend-layout.html";
+import 'regenerator-runtime/runtime';
+import 'systemjs-webpack-interop/auto-public-path';
+
+import { registerApplication, start } from 'single-spa';
+import { constructApplications, constructRoutes, constructLayoutEngine } from 'single-spa-layout';
+import microfrontendLayout from './microfrontend-layout.html';
 
 const routes = constructRoutes(microfrontendLayout);
 const applications = constructApplications({
