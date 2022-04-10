@@ -9,7 +9,7 @@ const DotenvWebpackPlugin = require('dotenv-webpack');
 
 const modulesImportsMap = JSON.stringify(require('./imports.map.json'));
 
-console.log(modulesImportsMap);
+require('dotenv').config();
 
 module.exports = async (webpackConfigEnv, argv) => {
   const orgName = 'openemp';
@@ -56,7 +56,6 @@ module.exports = async (webpackConfigEnv, argv) => {
     });
     return JSON.stringify({ imports });
   }
-  console.log(generateImportsMap());
 
   return merge(defaultConfig, {
     // modify the webpack config however you'd like to by adding to this object
@@ -72,7 +71,7 @@ module.exports = async (webpackConfigEnv, argv) => {
           packagesImportsMap: generateImportsMap(),
           isLocal: webpackConfigEnv && webpackConfigEnv.isLocal,
           modulesImportsMap,
-          modulesImportsMapUrl: false,
+          modulesImportsMapUrl: process.env.IMPORTMAP_URL, // can be added from .env file
           orgName,
         },
         chunks: [],

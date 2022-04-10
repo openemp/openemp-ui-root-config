@@ -25,7 +25,7 @@
         <script type="systemjs-importmap"><%= packagesImportsMap %></script>
         <script type="systemjs-importmap"><%= modulesImportsMap %></script>
         <% if (modulesImportsMapUrl) { %>
-          <script type="systemjs-importmap"><%= modulesImportsMapUrl %></script>
+          <script id="importmap-url" type="systemjs-importmap" src="<%= modulesImportsMapUrl %>"></script>
           <% } %>
 
             <script type="systemjs-importmap">
