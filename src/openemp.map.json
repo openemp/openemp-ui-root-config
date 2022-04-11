@@ -1,11 +1,11 @@
 {
   "imports": {
-    "@openemp/root-config": "//localhost:9000/openemp-root-config.js",
-    "@openemp/styleguide": "//localhost:9001/openemp-styleguide.js",
-    "@openemp/navbar": "//localhost:9002/openemp-navbar.js",
-    "@openemp/drawer": "//localhost:9003/openemp-drawer.js",
-    "@openemp/core": "//localhost:9100/openemp-core.js",
-    "@openemp/template": "//localhost:9010/openemp-template.js",
-    "@openemp/login": "//localhost:9011/openemp-login.js"
+    "@openemp/root-config": "/openemp-root-config.js",
+    "@openemp/styleguide": "/style-ui/openemp-styleguide.js",
+    "@openemp/navbar": "/navbar-ui/openemp-navbar.js",
+    "@openemp/drawer": "/drawer-ui/openemp-drawer.js",
+    "@openemp/core": "/core-ui/openemp-core.js",
+    "@openemp/template": "/template-ui/openemp-template.js",
+    "@openemp/login": "/login-ui/openemp-login.js"
   }
 }
